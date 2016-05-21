@@ -1,0 +1,75 @@
+@import '../common';
+
+:local(.buttonLink) {
+  @include product-hunt-theme-resetButton;
+  @include product-hunt-theme-resetLink;
+  cursor: pointer;
+
+  &:local(.buttonLink--black) {
+    :local(.content) {
+      color: $color-primaryText;
+    }
+
+    :local(.icon) {
+      color: $color-primaryText;
+    }
+  }
+
+  &:local(.buttonLink--gray) {
+    :local(.content) {
+      color: $color-grayText;
+    }
+
+    :local(.icon) {
+      color: $color-grayText;
+    }
+  }
+
+  &:local(.buttonLink--link) {
+    &:hover {
+      :local(.content) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &:local(.buttonLink--outline) {
+    :local(.content) {
+      background-color: white;
+      border: 1px solid $color-border;
+      border-radius: 3px;
+    }
+
+    &:hover {
+      :local(.content) {
+        border-color: scale-color($color-border, $lightness: -15%);
+      }
+    }
+  }
+
+  &:local(.buttonLink--solid) {
+    :local(.content) {
+      background-color: $color-border;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    &:hover {
+      :local(.content) {
+        background-color: scale-color($color-border, $lightness: -15%);
+      }
+    }
+  }
+}
+
+:local(.content) {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  height: 24px;
+  padding: 0 8px;
+}
+
+:local(.icon) {
+  margin-right: 5px;
+}

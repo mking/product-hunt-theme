@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "rules": {
+    "arrow-body-style": 0,
+    "jsx-a11y/img-has-alt": 0,
+    "new-cap": 0,
+    "no-trailing-spaces": 0,
+    "react/prefer-stateless-function": 0,
+    "react/sort-comp": 0
+  }
+}

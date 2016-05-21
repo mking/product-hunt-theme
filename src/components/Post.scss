@@ -1,0 +1,80 @@
+@import '../common';
+
+:local(.actionButton) {
+  flex-shrink: 0;
+  pointer-events: auto;
+
+  &:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+:local(.actionButtons) {
+  display: flex;
+}
+
+:local(.actionIcon) {
+  color: $color-primaryText;
+  font-size: 14px;
+}
+
+:local(.actions) {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+:local(.actionTitle) {
+  color: $color-primaryText;
+  font-size: 12px;
+}
+
+:local(.container) {
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  padding: 25px;
+  pointer-events: none;
+
+  &:hover {
+    background-color: $color-hover;
+  }
+}
+
+:local(.link) {
+  @include product-hunt-theme-resetLink;
+  bottom: 0;
+  left: 0;
+  pointer-events: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+:local(.name) {
+  color: $color-primaryText;
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+:local(.right) {
+  align-self: flex-end;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 1px;
+}
+
+:local(.tagline) {
+  color: $color-tagline;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+:local(.thumbnail) {
+  flex-shrink: 0;
+  height: 80px;
+  margin-right: 25px;
+  width: 80px;
+}

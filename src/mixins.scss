@@ -1,0 +1,9 @@
+@mixin product-hunt-theme-resetButton {
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+}
+
+@mixin product-hunt-theme-resetLink {
+  text-decoration: none;
+}
