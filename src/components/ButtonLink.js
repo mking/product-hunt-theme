@@ -4,20 +4,19 @@ import styles from './ButtonLink.scss';
 
 class ButtonLink extends React.Component {
   static propTypes = {
-    buttonStyle: React.PropTypes.oneOf(['link', 'outline', 'solid']),
+    buttonStyle: React.PropTypes.oneOf(['link', 'outline', 'solid']).isRequired,
     className: React.PropTypes.string,
-    color: React.PropTypes.oneOf(['black', 'gray']),
+    color: React.PropTypes.oneOf(['black', 'gray']).isRequired,
     contentClassName: React.PropTypes.string,
     href: React.PropTypes.string,
     icon: React.PropTypes.node,
+    style: React.PropTypes.object,
     target: React.PropTypes.string,
     title: React.PropTypes.node,
     type: React.PropTypes.string,
   };
   
   static defaultProps = {
-    buttonStyle: 'outline',
-    color: 'gray',
     type: 'button',
   };
 
@@ -28,6 +27,7 @@ class ButtonLink extends React.Component {
       color,
       href,
       icon,
+      style,
       target,
       title,
       type,
@@ -51,6 +51,7 @@ class ButtonLink extends React.Component {
         className
       ),
       href,
+      style,
       target,
       type,
     });

@@ -1,16 +1,7 @@
 @import '../common';
 
 :local(.actionButton) {
-  flex-shrink: 0;
   pointer-events: auto;
-
-  &:not(:first-child) {
-    margin-left: 10px;
-  }
-}
-
-:local(.actionButtons) {
-  display: flex;
 }
 
 :local(.actionIcon) {

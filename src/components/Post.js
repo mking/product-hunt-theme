@@ -1,6 +1,7 @@
 import ButtonLink from './ButtonLink';
 import classNames from 'classnames';
 import ImmutablePropTypes from 'react-immutable-proptypes';
+import LinearGroup from './LinearGroup';
 import React from 'react';
 import styles from './Post.scss';
 
@@ -49,8 +50,12 @@ class Post extends React.Component {
             {post.get('tagline')}
           </div>
           <div className={styles.actions}>
-            <div className={styles.actionButtons}>
+            <LinearGroup
+              orientation="horizontal"
+              spacing={10}
+            >
               <ButtonLink
+                buttonStyle="outline"
                 className={styles.actionButton}
                 color="black"
                 icon={<i
@@ -63,7 +68,9 @@ class Post extends React.Component {
                 title={post.get('vote_count')}
               />
               <ButtonLink
+                buttonStyle="outline"
                 className={styles.actionButton}
+                color="gray"
                 href={`${baseURL}${post.get('url')}`}
                 icon={<i
                   className={classNames(
@@ -74,8 +81,11 @@ class Post extends React.Component {
                 />}
                 title={post.get('comment_count')}
               />
-            </div>
-            <div className={styles.actionButtons}>
+            </LinearGroup>
+            <LinearGroup
+              orientation="horizontal"
+              spacing={10}
+            >
               {!topics.isEmpty() && <ButtonLink
                 buttonStyle="solid"
                 className={styles.actionButton}
@@ -86,9 +96,10 @@ class Post extends React.Component {
               {topics.size > 1 && <ButtonLink
                 buttonStyle="link"
                 className={styles.actionButton}
+                color="gray"
                 title={`+ ${topics.size}`}
               />}
-            </div>
+            </LinearGroup>
           </div>
         </div>
       </div>

@@ -1,0 +1,13 @@
+@import '../common';
+
+:local(.container) {
+  display: flex;
+
+  &:local(.container--vertical) {
+    flex-direction: column;
+  }
+}
+
+:local(.child) {
+  flex-shrink: 0;
+}

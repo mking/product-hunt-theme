@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import Immutable from 'immutable';
+import LinearGroup from './LinearGroup';
 import Post from './Post';
 import ProductHuntWebAPIUtils from '../utils/ProductHuntWebAPIUtils';
 import React from 'react';
@@ -36,7 +37,10 @@ class ProductHunt extends React.Component {
     const { posts } = this.state;
 
     return (
-      <div className={classNames(styles.container, className)}>
+      <LinearGroup
+        className={classNames(styles.container, className)}
+        orientation="vertical"
+      >
         {posts.map(post => {
           return (
             <Post
@@ -47,7 +51,7 @@ class ProductHunt extends React.Component {
             />
           );
         })}
-      </div>
+      </LinearGroup>
     ); 
   }
 }
