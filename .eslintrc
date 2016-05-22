@@ -3,6 +3,7 @@
   "extends": ["airbnb"],
   "rules": {
     "arrow-body-style": 0,
+    "global-require": 0,
     "jsx-a11y/img-has-alt": 0,
     "new-cap": 0,
     "no-trailing-spaces": 0,

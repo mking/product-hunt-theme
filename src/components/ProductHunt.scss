@@ -1,7 +1,37 @@
 @import '../common';
 
+:local(.container) {
+  display: flex;
+  flex-direction: column;
+}
+
+:local(.header) {
+  flex-shrink: 0;
+}
+
+:local(.main) {
+  background-color: $color-lightGray;
+  display: flex;
+  flex-grow: 1;
+  min-height: 1px;
+  padding: 30px 15px;
+}
+
+:local(.navSidebar) {
+  flex-shrink: 0;
+  margin-right: 15px;
+  width: 130px;
+}
+
 :local(.post) {
   &:not(:first-child) {
     border-top: 1px solid $color-border;
   }
+}
+
+:local(.posts) {
+  background-color: white;
+  border: 1px solid $color-border;
+  flex-grow: 1;
+  min-width: 1px;
 }

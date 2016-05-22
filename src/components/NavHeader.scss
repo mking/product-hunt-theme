@@ -1,0 +1,22 @@
+@import '../common';
+
+:local(.header) {
+  align-items: center;
+  box-shadow: 0 1px 0 0 rgba(black, 0.05), 0 2px 4px 0 rgba(black, 0.06);
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 15px;
+  z-index: $zIndex-navHeader;
+}
+
+:local(.logoImage) {
+  display: block;
+  height: 34px;
+  width: 34px;
+}
+
+:local(.logoLink) {
+  @include product-hunt-theme-resetLink;
+  flex-shrink: 0;
+}

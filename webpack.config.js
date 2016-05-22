@@ -27,6 +27,13 @@ module.exports = {
         ],
         loaders: ['style', 'css?localIdentName=product-hunt-theme-[name]-[local]', 'postcss', 'sass']
       },
+      {
+        test: /\.svg$/,
+        include: [
+          path.join(__dirname, 'src'),
+        ],
+        loaders: ['file']
+      },
     ]
   },
   plugins: [

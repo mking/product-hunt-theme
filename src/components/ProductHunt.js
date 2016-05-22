@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import Immutable from 'immutable';
 import LinearGroup from './LinearGroup';
+import NavHeader from './NavHeader';
+import NavSidebar from './NavSidebar';
 import Post from './Post';
 import ProductHuntWebAPIUtils from '../utils/ProductHuntWebAPIUtils';
 import React from 'react';
@@ -37,21 +39,32 @@ class ProductHunt extends React.Component {
     const { posts } = this.state;
 
     return (
-      <LinearGroup
-        className={classNames(styles.container, className)}
-        orientation="vertical"
-      >
-        {posts.map(post => {
-          return (
-            <Post
-              baseURL={baseURL}
-              className={styles.post}
-              key={post.get('id')}
-              post={post}
-            />
-          );
-        })}
-      </LinearGroup>
+      <div className={classNames(styles.container, className)}>
+        <NavHeader
+          baseURL={baseURL}
+          className={styles.header}
+        />
+        <div className={styles.main}>
+          <NavSidebar
+            className={styles.navSidebar}
+          />
+          <LinearGroup
+            className={styles.posts}
+            orientation="vertical"
+          >
+            {posts.map(post => {
+              return (
+                <Post
+                  baseURL={baseURL}
+                  className={styles.post}
+                  key={post.get('id')}
+                  post={post}
+                />
+              );
+            })}
+          </LinearGroup>
+        </div>
+      </div>
     ); 
   }
 }

@@ -4,7 +4,7 @@ import styles from './ButtonLink.scss';
 
 class ButtonLink extends React.Component {
   static propTypes = {
-    buttonStyle: React.PropTypes.oneOf(['link', 'outline', 'solid']).isRequired,
+    buttonStyle: React.PropTypes.oneOf(['link', 'outline', 'solid', 'text']).isRequired,
     className: React.PropTypes.string,
     color: React.PropTypes.oneOf(['black', 'gray']).isRequired,
     contentClassName: React.PropTypes.string,
