@@ -26,9 +26,11 @@ class ProductHunt extends React.Component {
     this.state = {
       activePostId: null,
       filter: 'popular',
+      expanded: false,
       posts: Immutable.List(),
     };
 
+    this.handleExpand = this.handleExpand.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handlePostEnter = this.handlePostEnter.bind(this);
     this.handlePostLeave = this.handlePostLeave.bind(this);
@@ -63,8 +65,15 @@ class ProductHunt extends React.Component {
       filter,
     })).then(posts => {
       this.setState({
+        expanded: false,
         posts,
       });
+    });
+  }
+
+  handleExpand() {
+    this.setState({
+      expanded: true,
     });
   }
 
@@ -90,7 +99,7 @@ class ProductHunt extends React.Component {
 
   render() {
     const { baseURL, className } = this.props;
-    const { filter, posts } = this.state;
+    const { expanded, filter, posts } = this.state;
 
     return (
       <div className={classNames(styles.container, className)}>
@@ -111,10 +120,12 @@ class ProductHunt extends React.Component {
             />
             <LimitGroup
               className={styles.posts}
+              expanded={expanded}
               expander={<ExpanderCell />}
               itemGetter={this.getPost}
               items={posts}
               limit={10}
+              onExpand={this.handleExpand}
             />
           </div>
         </div>

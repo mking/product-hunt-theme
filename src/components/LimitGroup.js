@@ -7,39 +7,25 @@ import styles from './LimitGroup.scss';
 class LimitGroup extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
+    expanded: React.PropTypes.bool.isRequired,
     expander: React.PropTypes.node,
     itemGetter: React.PropTypes.func,
     items: ImmutablePropTypes.list.isRequired,
     limit: React.PropTypes.number.isRequired,
+    onExpand: React.PropTypes.func,
   };
-  
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      expanded: false,
-    };
-    
-    this.handleExpand = this.handleExpand.bind(this);
-  }
-
-  handleExpand() {
-    this.setState({
-      expanded: true,
-    });
-  }
   
   render() {
     const {
       className,
+      expanded,
       expander,
       itemGetter,
       items,
       limit,
+      onExpand,
     } = this.props;
     
-    const { expanded } = this.state;
-
     const truncatedLimit = Math.min(items.size, limit);
     const expandedLimit = expanded ? items.size : truncatedLimit;
     
@@ -56,7 +42,7 @@ class LimitGroup extends React.Component {
         {!expanded && React.cloneElement(expander, {
           className: classNames(styles.expander, expander.props.className),
           numRemaining: items.size - truncatedLimit,
-          onClick: this.handleExpand,
+          onClick: onExpand,
         })}
       </div>
     );
