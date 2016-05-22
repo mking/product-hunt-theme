@@ -7,7 +7,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build'),
-    publicPath: '/build/'
+    publicPath: '/react-product-hunt/build/'
   },
   module: {
     loaders: [
