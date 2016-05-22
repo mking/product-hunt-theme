@@ -8,3 +8,4 @@ Future Improvements
 ---
 - Sticky header
 - Search
+- Detail
