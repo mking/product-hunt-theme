@@ -1,0 +1,16 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+    <circle
+        cx="20"
+        cy="20"
+        fill="#da552f"
+        r="20"
+    />
+    <text
+        fill="white"
+        style="dominant-baseline: central; font-family: sans-serif; font-size: 26px; font-weight: bold; text-anchor: middle;"
+        x="21"
+        y="21"
+    >
+        P
+    </text>
+</svg>
