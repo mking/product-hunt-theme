@@ -8,6 +8,7 @@ import styles from './NavSidebar.scss';
 class NavSidebar extends React.Component {
   static propTypes = {
     activeLink: React.PropTypes.string,
+    baseURL: React.PropTypes.string,
     className: React.PropTypes.string,
     sections: ImmutablePropTypes.list.isRequired,
   };
@@ -91,6 +92,7 @@ class NavSidebar extends React.Component {
   render() {
     const {
       activeLink,
+      baseURL,
       className,
       sections,
     } = this.props;
@@ -125,7 +127,7 @@ class NavSidebar extends React.Component {
                         styles.link,
                         activeLink === link.get('url') && styles['link--active']
                       )}
-                      href={link.get('url')}
+                      href={`${baseURL}${link.get('url')}`}
                       key={linkIndex}
                     >
                       {link.get('name')}

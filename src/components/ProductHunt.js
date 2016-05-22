@@ -109,6 +109,7 @@ class ProductHunt extends React.Component {
         />
         <div className={styles.main}>
           <NavSidebar
+            baseURL={baseURL}
             className={styles.navSidebar}
           />
           <div className={styles.card}>
