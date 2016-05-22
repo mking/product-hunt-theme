@@ -8,6 +8,7 @@ import NavSidebar from './NavSidebar';
 import Post from './Post';
 import ProductHuntWebAPIUtils from '../utils/ProductHuntWebAPIUtils';
 import React from 'react';
+import SizeConstraint from './SizeConstraint';
 import styles from './ProductHunt.scss';
 
 class ProductHunt extends React.Component {
@@ -107,29 +108,31 @@ class ProductHunt extends React.Component {
           baseURL={baseURL}
           className={styles.header}
         />
-        <div className={styles.main}>
-          <NavSidebar
-            baseURL={baseURL}
-            className={styles.navSidebar}
-          />
-          <div className={styles.card}>
-            <DateHeader
-              className={styles.dateHeader}
-              date="Today"
-              filter={filter}
-              onFilterChange={this.handleFilterChange}
+        <SizeConstraint className={styles.main}>
+          <div className={styles.mainContent}>
+            <NavSidebar
+              baseURL={baseURL}
+              className={styles.navSidebar}
             />
-            <LimitGroup
-              className={styles.posts}
-              expanded={expanded}
-              expander={<ExpanderCell />}
-              itemGetter={this.getPost}
-              items={posts}
-              limit={10}
-              onExpand={this.handleExpand}
-            />
+            <div className={styles.card}>
+              <DateHeader
+                className={styles.dateHeader}
+                date="Today"
+                filter={filter}
+                onFilterChange={this.handleFilterChange}
+              />
+              <LimitGroup
+                className={styles.posts}
+                expanded={expanded}
+                expander={<ExpanderCell />}
+                itemGetter={this.getPost}
+                items={posts}
+                limit={10}
+                onExpand={this.handleExpand}
+              />
+            </div>
           </div>
-        </div>
+        </SizeConstraint>
       </div>
     );
   }

@@ -15,7 +15,6 @@ TODO
 
 Future Improvements
 ---
-- Max width
 - Sticky header
 - Search
 - Detail

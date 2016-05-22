@@ -11,9 +11,12 @@
 
 :local(.main) {
   background-color: $color-lightGray;
-  display: flex;
   flex-grow: 1;
   min-height: 1px;
+}
+
+:local(.mainContent) {
+  display: flex;
   padding: 30px 15px;
 }
 
