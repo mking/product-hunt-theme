@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Immutable from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import LinearGroup from './LinearGroup';
+import NavSection from './NavSection';
 import React from 'react';
 import styles from './NavSidebar.scss';
 
@@ -108,34 +109,12 @@ class NavSidebar extends React.Component {
       >
         {sections.map((section, sectionIndex) => {
           return (
-            <div
-              className={styles.section}
+            <NavSection
+              activeLink={activeLink}
+              baseURL={baseURL}
               key={sectionIndex}
-            >
-              {section.get('name') && <div className={styles.sectionHeader}>
-                {section.get('name')}
-              </div>}
-              <LinearGroup
-                className={styles.links}
-                orientation="vertical"
-                spacing={10}
-              >
-                {section.get('links').map((link, linkIndex) => {
-                  return (
-                    <a
-                      className={classNames(
-                        styles.link,
-                        activeLink === link.get('url') && styles['link--active']
-                      )}
-                      href={`${baseURL}${link.get('url')}`}
-                      key={linkIndex}
-                    >
-                      {link.get('name')}
-                    </a>
-                  );
-                })}
-              </LinearGroup>
-            </div>
+              section={section}
+            />
           );
         })}
       </LinearGroup>
