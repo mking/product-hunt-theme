@@ -2,7 +2,10 @@
 
 set -e
 
-[ 'master' = $(git rev-parse --abbrev-ref HEAD) ] || echo 'Must be on master'
+if [ 'master' != $(git rev-parse --abbrev-ref HEAD) ]; then
+    echo 'You must be on master to deploy.';
+    exit 1;
+fi
 
 git checkout gh-pages
 git reset --hard master
