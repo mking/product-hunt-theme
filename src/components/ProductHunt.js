@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import ConstraintComponent from './ConstraintComponent';
 import DateHeader from './DateHeader';
 import ExpanderCell from './ExpanderCell';
 import Immutable from 'immutable';
@@ -8,7 +9,6 @@ import NavSidebar from './NavSidebar';
 import Post from './Post';
 import ProductHuntWebAPIUtils from '../utils/ProductHuntWebAPIUtils';
 import React from 'react';
-import SizeConstraint from './SizeConstraint';
 import styles from './ProductHunt.scss';
 
 class ProductHunt extends React.Component {
@@ -108,7 +108,7 @@ class ProductHunt extends React.Component {
           baseURL={baseURL}
           className={styles.header}
         />
-        <SizeConstraint className={styles.main}>
+        <ConstraintComponent className={styles.main}>
           <div className={styles.mainContent}>
             <NavSidebar
               baseURL={baseURL}
@@ -132,7 +132,7 @@ class ProductHunt extends React.Component {
               />
             </div>
           </div>
-        </SizeConstraint>
+        </ConstraintComponent>
       </div>
     );
   }

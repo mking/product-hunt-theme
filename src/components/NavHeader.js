@@ -1,8 +1,8 @@
 import ButtonLink from './ButtonLink';
 import classNames from 'classnames';
+import ConstraintComponent from './ConstraintComponent';
 import LinearGroup from './LinearGroup';
 import React from 'react';
-import SizeConstraint from './SizeConstraint';
 import styles from './NavHeader.scss';
 
 class NavHeader extends React.Component {
@@ -18,7 +18,7 @@ class NavHeader extends React.Component {
     } = this.props;
     
     return (
-      <SizeConstraint
+      <ConstraintComponent
         className={classNames(styles.header, className)}
       >
         <div className={styles.headerContent}>
@@ -58,7 +58,7 @@ class NavHeader extends React.Component {
             />
           </LinearGroup>
         </div>
-      </SizeConstraint>
+      </ConstraintComponent>
     );
   }
 }

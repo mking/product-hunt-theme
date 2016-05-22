@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
-import styles from './SizeConstraint.scss';
+import styles from './ConstraintComponent.scss';
 
-class SizeConstraint extends React.Component {
+class ConstraintComponent extends React.Component {
   static propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
@@ -30,4 +30,4 @@ class SizeConstraint extends React.Component {
   }
 }
 
-export default SizeConstraint;
+export default ConstraintComponent;
