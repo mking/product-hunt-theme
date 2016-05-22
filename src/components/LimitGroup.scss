@@ -1,0 +1,9 @@
+@import '../common';
+
+:local(.expander) {
+  flex-shrink: 0;
+}
+
+:local(.items) {
+  flex-shrink: 0;
+}

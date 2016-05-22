@@ -2,9 +2,9 @@ import axios from 'axios';
 import Immutable from 'immutable';
 
 class ProductHuntWebAPIUtils {
-  static getPosts() {
+  static getPosts(options) {
     return axios({
-      url: '/json/product-hunt.json',
+      url: `/json/${options.get('filter')}.json`,
     }).then(response => {
       return Immutable.fromJS(response.data).get('posts');
     });

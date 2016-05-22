@@ -2,6 +2,14 @@
 
 :local(.actionButton) {
   pointer-events: auto;
+
+  &:local(.actionButton--external) {
+    :local(.actionIcon) {
+      color: $color-grayText;
+      left: 1px;
+      top: 1px;
+    }
+  }
 }
 
 :local(.actionIcon) {
@@ -13,7 +21,7 @@
   display: flex;
   flex-shrink: 0;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 :local(.actionTitle) {
@@ -28,7 +36,7 @@
   padding: 25px;
   pointer-events: none;
 
-  &:hover {
+  &:local(.container--active) {
     background-color: $color-hover;
   }
 }
@@ -61,6 +69,7 @@
   color: $color-tagline;
   flex-shrink: 0;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 :local(.thumbnail) {

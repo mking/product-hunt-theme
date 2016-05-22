@@ -6,28 +6,32 @@
   cursor: pointer;
 
   &:local(.buttonLink--black) {
-    :local(.content) {
+    :local(.icon) {
       color: $color-primaryText;
     }
 
-    :local(.icon) {
+    :local(.title) {
       color: $color-primaryText;
     }
   }
 
   &:local(.buttonLink--gray) {
-    :local(.content) {
+    :local(.icon) {
       color: $color-grayText;
     }
 
-    :local(.icon) {
+    :local(.title) {
       color: $color-grayText;
     }
   }
 
   &:local(.buttonLink--link) {
+    :local(.title) {
+      text-transform: uppercase;
+    }
+
     &:hover {
-      :local(.content) {
+      :local(.title) {
         text-decoration: underline;
       }
     }
@@ -53,6 +57,9 @@
       background-color: $color-border;
       border-radius: 3px;
       padding: 0 8px;
+    }
+
+    :local(.title) {
       text-transform: uppercase;
     }
 
@@ -64,13 +71,17 @@
   }
 
   &:local(.buttonLink--text) {
-    :local(.content) {
+    :local(.title) {
       font-weight: bold;
       text-transform: uppercase;
     }
 
     &:hover {
-      :local(.content) {
+      :local(.icon) {
+        color: $color-red;
+      }
+
+      :local(.title) {
         color: $color-red;
       }
     }
@@ -85,5 +96,7 @@
 }
 
 :local(.icon) {
-  margin-right: 5px;
+  &:local(.icon--title) {
+    margin-right: 5px;
+  }
 }

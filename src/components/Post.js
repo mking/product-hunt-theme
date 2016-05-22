@@ -7,8 +7,11 @@ import styles from './Post.scss';
 
 class Post extends React.Component {
   static propTypes = {
+    active: React.PropTypes.bool,
     baseURL: React.PropTypes.string,
     className: React.PropTypes.string,
+    onMouseEnter: React.PropTypes.func,
+    onMouseLeave: React.PropTypes.func,
     post: ImmutablePropTypes.map.isRequired,
   };
 
@@ -25,13 +28,19 @@ class Post extends React.Component {
   }
 
   render() {
-    const { baseURL, className, post } = this.props;
+    const { active, baseURL, className, onMouseEnter, onMouseLeave, post } = this.props;
 
     const topics = post.get('topics');
 
     return (
       <div
-        className={classNames(styles.container, className)}
+        className={classNames(
+          styles.container,
+          active && styles['container--active'],
+          className
+        )}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
       >
         <a
           className={styles.link}
@@ -60,9 +69,9 @@ class Post extends React.Component {
                 color="black"
                 icon={<i
                   className={classNames(
+                    styles.actionIcon,
                     'fa',
-                    'fa-caret-up',
-                    styles.actionIcon
+                    'fa-caret-up'
                   )}
                 />}
                 title={post.get('vote_count')}
@@ -74,13 +83,29 @@ class Post extends React.Component {
                 href={`${baseURL}${post.get('url')}`}
                 icon={<i
                   className={classNames(
+                    styles.actionIcon,
                     'fa',
-                    'fa-comment',
-                    styles.actionIcon
+                    'fa-comment'
                   )}
                 />}
                 title={post.get('comment_count')}
               />
+              {active && <ButtonLink
+                buttonStyle="outline"
+                className={classNames(
+                  styles.actionButton,
+                  styles['actionButton--external']
+                )}
+                color="gray"
+                href={`${baseURL}${post.get('shortened_url')}`}
+                icon={<i
+                  className={classNames(
+                    styles.actionIcon,
+                    'fa',
+                    'fa-external-link'
+                  )}
+                />}
+              />}
             </LinearGroup>
             <LinearGroup
               orientation="horizontal"

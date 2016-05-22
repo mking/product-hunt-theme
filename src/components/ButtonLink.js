@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import isNil from 'lodash/isNil';
 import React from 'react';
 import styles from './ButtonLink.scss';
 
@@ -34,14 +35,20 @@ class ButtonLink extends React.Component {
     } = this.props;
 
     const component = href ? 'a' : 'button';
-    
+
     return React.createElement(component, {
       children: (
         <div className={styles.content}>
           {icon && React.cloneElement(icon, {
-            className: classNames(styles.icon, icon.props.className),
+            className: classNames(
+              styles.icon,
+              !isNil(title) && styles['icon--title'],
+              icon.props.className
+            ),
           })}
-          {title}
+          <span className={styles.title}>
+            {title}
+          </span>
         </div>
       ),
       className: classNames(

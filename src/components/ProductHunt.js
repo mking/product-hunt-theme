@@ -1,6 +1,7 @@
 import classNames from 'classnames';
+import ExpanderCell from './ExpanderCell';
 import Immutable from 'immutable';
-import LinearGroup from './LinearGroup';
+import LimitGroup from './LimitGroup';
 import NavHeader from './NavHeader';
 import NavSidebar from './NavSidebar';
 import Post from './Post';
@@ -13,27 +14,63 @@ class ProductHunt extends React.Component {
     baseURL: React.PropTypes.string,
     className: React.PropTypes.string,
   };
-  
+
   static defaultProps = {
     baseURL: 'https://www.producthunt.com',
   };
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
+      activePostId: null,
       posts: Immutable.List(),
     };
+
+    this.handlePostEnter = this.handlePostEnter.bind(this);
+    this.handlePostLeave = this.handlePostLeave.bind(this);
+    this.getPost = this.getPost.bind(this);
   }
-  
+
   componentDidMount() {
-    ProductHuntWebAPIUtils.getPosts().then(posts => {
+    ProductHuntWebAPIUtils.getPosts(Immutable.Map({
+      filter: 'popular',
+    })).then(posts => {
       this.setState({
         posts,
       });
     });
   }
-  
+
+  getPost(post) {
+    const { baseURL } = this.props;
+    const { activePostId } = this.state;
+
+    return (
+      <Post
+        active={activePostId === post.get('id')}
+        baseURL={baseURL}
+        className={styles.post}
+        key={post.get('id')}
+        onMouseEnter={() => this.handlePostEnter(post.get('id'))}
+        onMouseLeave={this.handlePostLeave}
+        post={post}
+      />
+    );
+  }
+
+  handlePostEnter(id) {
+    this.setState({
+      activePostId: id,
+    });
+  }
+
+  handlePostLeave() {
+    this.setState({
+      activePostId: null,
+    });
+  }
+
   render() {
     const { baseURL, className } = this.props;
     const { posts } = this.state;
@@ -48,24 +85,16 @@ class ProductHunt extends React.Component {
           <NavSidebar
             className={styles.navSidebar}
           />
-          <LinearGroup
+          <LimitGroup
             className={styles.posts}
-            orientation="vertical"
-          >
-            {posts.map(post => {
-              return (
-                <Post
-                  baseURL={baseURL}
-                  className={styles.post}
-                  key={post.get('id')}
-                  post={post}
-                />
-              );
-            })}
-          </LinearGroup>
+            expander={<ExpanderCell />}
+            itemGetter={this.getPost}
+            items={posts}
+            limit={10}
+          />
         </div>
       </div>
-    ); 
+    );
   }
 }
 

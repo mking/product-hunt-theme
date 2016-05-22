@@ -39,7 +39,7 @@ class NavHeader extends React.Component {
           <ButtonLink
             buttonStyle="text"
             color="gray"
-            title={<i
+            icon={<i
               className={classNames(
                 'fa',
                 'fa-ellipsis-h'
