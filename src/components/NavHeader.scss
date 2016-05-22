@@ -17,6 +17,6 @@
 }
 
 :local(.logoLink) {
-  @include product-hunt-theme-resetLink;
+  @include react-product-hunt-resetLink;
   flex-shrink: 0;
 }

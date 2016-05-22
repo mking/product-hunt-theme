@@ -1,4 +1,4 @@
-Product Hunt Theme
+React Product Hunt
 ===
 TODO
 ---

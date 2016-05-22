@@ -1,8 +1,8 @@
 @import '../common';
 
 :local(.buttonLink) {
-  @include product-hunt-theme-resetButton;
-  @include product-hunt-theme-resetLink;
+  @include react-product-hunt-resetButton;
+  @include react-product-hunt-resetLink;
   cursor: pointer;
 
   &:local(.buttonLink--black) {
