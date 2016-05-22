@@ -36,7 +36,9 @@ class NavHeader extends React.Component {
                 src={require('../images/logo.svg')}
               />
             </a>
-            <SearchContainer />
+            <SearchContainer
+              className={styles.search}
+            />
           </LinearGroup>
           <LinearGroup
             orientation="horizontal"

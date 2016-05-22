@@ -12,13 +12,12 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 34px;
+  width: 32px;
 }
 
 :local(.container) {
   display: flex;
   flex-direction: column;
-  width: 300px;
 }
 
 :local(.input) {
@@ -28,8 +27,9 @@
   color: $color-grayText;
   flex-shrink: 0;
   font-size: 14px;
-  height: 34px;
-  padding: 0 34px;
+  height: 32px;
+  padding: 0 32px;
+  width: 300px;
 
   &::placeholder {
     color: $color-grayText;
@@ -44,7 +44,7 @@
   left: 0;
   position: absolute;
   top: 0;
-  width: 34px;
+  width: 32px;
 }
 
 :local(.searchIcon) {

@@ -23,3 +23,7 @@
   @include product-hunt-resetLink;
   flex-shrink: 0;
 }
+
+:local(.search) {
+  align-self: center;
+}
