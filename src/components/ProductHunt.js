@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import DateHeader from './DateHeader';
 import ExpanderCell from './ExpanderCell';
 import Immutable from 'immutable';
 import LimitGroup from './LimitGroup';
@@ -24,22 +25,18 @@ class ProductHunt extends React.Component {
 
     this.state = {
       activePostId: null,
+      filter: 'popular',
       posts: Immutable.List(),
     };
 
+    this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handlePostEnter = this.handlePostEnter.bind(this);
     this.handlePostLeave = this.handlePostLeave.bind(this);
     this.getPost = this.getPost.bind(this);
   }
 
   componentDidMount() {
-    ProductHuntWebAPIUtils.getPosts(Immutable.Map({
-      filter: 'popular',
-    })).then(posts => {
-      this.setState({
-        posts,
-      });
-    });
+    this.getPosts();
   }
 
   getPost(post) {
@@ -59,6 +56,26 @@ class ProductHunt extends React.Component {
     );
   }
 
+  getPosts() {
+    const { filter } = this.state;
+
+    return ProductHuntWebAPIUtils.getPosts(Immutable.Map({
+      filter,
+    })).then(posts => {
+      this.setState({
+        posts,
+      });
+    });
+  }
+
+  handleFilterChange(filter) {
+    this.setState({
+      filter,
+    }, () => {
+      this.getPosts();
+    });
+  }
+
   handlePostEnter(id) {
     this.setState({
       activePostId: id,
@@ -73,7 +90,7 @@ class ProductHunt extends React.Component {
 
   render() {
     const { baseURL, className } = this.props;
-    const { posts } = this.state;
+    const { filter, posts } = this.state;
 
     return (
       <div className={classNames(styles.container, className)}>
@@ -85,13 +102,21 @@ class ProductHunt extends React.Component {
           <NavSidebar
             className={styles.navSidebar}
           />
-          <LimitGroup
-            className={styles.posts}
-            expander={<ExpanderCell />}
-            itemGetter={this.getPost}
-            items={posts}
-            limit={10}
-          />
+          <div className={styles.card}>
+            <DateHeader
+              className={styles.dateHeader}
+              date="Today"
+              filter={filter}
+              onFilterChange={this.handleFilterChange}
+            />
+            <LimitGroup
+              className={styles.posts}
+              expander={<ExpanderCell />}
+              itemGetter={this.getPost}
+              items={posts}
+              limit={10}
+            />
+          </div>
         </div>
       </div>
     );

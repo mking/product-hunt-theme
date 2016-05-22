@@ -38,6 +38,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /^\.\/en$/),
   ],
   devServer: {
     port: 8080,

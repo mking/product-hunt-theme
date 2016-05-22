@@ -11,6 +11,7 @@ class ButtonLink extends React.Component {
     contentClassName: React.PropTypes.string,
     href: React.PropTypes.string,
     icon: React.PropTypes.node,
+    onClick: React.PropTypes.func,
     style: React.PropTypes.object,
     target: React.PropTypes.string,
     title: React.PropTypes.node,
@@ -28,6 +29,7 @@ class ButtonLink extends React.Component {
       color,
       href,
       icon,
+      onClick,
       style,
       target,
       title,
@@ -58,6 +60,7 @@ class ButtonLink extends React.Component {
         className
       ),
       href,
+      onClick,
       style,
       target,
       type,
