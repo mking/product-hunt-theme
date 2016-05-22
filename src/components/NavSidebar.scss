@@ -1,7 +1,7 @@
 @import '../common';
 
 :local(.link) {
-  @include react-product-hunt-resetLink;
+  @include product-hunt-resetLink;
   border-radius: 3px;
   color: $color-grayText;
   cursor: pointer;

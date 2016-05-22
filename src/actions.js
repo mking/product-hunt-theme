@@ -39,3 +39,10 @@ export function setFilter(options) {
     filter: options.get('filter'),
   };
 }
+
+export function setSearch(options) {
+  return {
+    type: ProductHuntActionTypes.SET_SEARCH,
+    search: options.get('search'),
+  };
+}

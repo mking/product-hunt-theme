@@ -4,9 +4,11 @@ import ProductHuntActionTypes from './constants/ProductHuntActionTypes';
 export default function reducer(
   state = Immutable.Map({
     activePostId: null,
+    baseURL: 'https://www.producthunt.com',
     expanded: false,
     filter: 'popular',
     posts: Immutable.List(),
+    search: '',
   }),
   action
 ) {
@@ -31,6 +33,10 @@ export default function reducer(
 
     case ProductHuntActionTypes.SET_FILTER: {
       return state.set('filter', action.filter);
+    }
+      
+    case ProductHuntActionTypes.SET_SEARCH: {
+      return state.set('search', action.search);
     }
       
     default: {

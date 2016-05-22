@@ -1,9 +1,9 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
+import Home from '../pages/Home';
 import Immutable from 'immutable';
 import ImmutablePropTypes from 'react-immutable-proptypes';
-import ProductHunt from '../components/ProductHunt';
 import React from 'react';
 
 import {
@@ -13,7 +13,7 @@ import {
   setFilter,
 } from '../actions';
 
-class ProductHuntContainer extends React.Component {
+class HomeContainer extends React.Component {
   static propTypes = {
     activePostId: React.PropTypes.number,
     baseURL: React.PropTypes.string,
@@ -25,10 +25,6 @@ class ProductHuntContainer extends React.Component {
     onSetActivePost: React.PropTypes.func,
     onSetFilter: React.PropTypes.func,
     posts: ImmutablePropTypes.list,
-  };
-
-  static defaultProps = {
-    baseURL: 'https://www.producthunt.com',
   };
 
   constructor(props) {
@@ -84,7 +80,7 @@ class ProductHuntContainer extends React.Component {
     } = this.props;
 
     return (
-      <ProductHunt
+      <Home
         activePostId={activePostId}
         baseURL={baseURL}
         className={className}
@@ -101,12 +97,14 @@ class ProductHuntContainer extends React.Component {
 }
 
 const selector = createSelector(
+  state => state.productHunt.get('baseURL'),
   state => state.productHunt.get('filter'),
   state => state.productHunt.get('posts'),
   state => state.productHunt.get('expanded'),
   state => state.productHunt.get('activePostId'),
-  (filter, posts, expanded, activePostId) => ({
+  (baseURL, filter, posts, expanded, activePostId) => ({
     activePostId,
+    baseURL,
     expanded,
     filter,
     posts,
@@ -120,4 +118,4 @@ export default connect(selector, dispatch => {
     onSetActivePost: setActivePost,
     onSetFilter: setFilter,
   }, dispatch);
-})(ProductHuntContainer);
+})(HomeContainer);

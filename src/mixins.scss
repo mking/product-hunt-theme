@@ -1,10 +1,17 @@
-@mixin react-product-hunt-resetButton {
+@mixin product-hunt-resetButton {
   background-color: transparent;
   border: 0;
   outline: none;
   padding: 0;
 }
 
-@mixin react-product-hunt-resetLink {
+@mixin product-hunt-resetInput {
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  padding: 0;
+}
+
+@mixin product-hunt-resetLink {
   text-decoration: none;
 }

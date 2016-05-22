@@ -1,18 +1,7 @@
 @import '../common';
 
 :local(.container) {
-  display: flex;
-  flex-direction: column;
-}
-
-:local(.header) {
-  flex-shrink: 0;
-}
-
-:local(.main) {
   background-color: $color-lightGray;
-  flex-grow: 1;
-  min-height: 1px;
 }
 
 :local(.mainContent) {

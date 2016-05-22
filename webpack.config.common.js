@@ -14,7 +14,7 @@ module.exports = {
     include: [
       path.join(__dirname, 'src'),
     ],
-    loaders: ['style', 'css?localIdentName=react-product-hunt-[name]-[local]', 'postcss', 'sass']
+    loaders: ['style', 'css?localIdentName=product-hunt-[name]-[local]', 'postcss', 'sass']
   },
   fileLoader: {
     test: /\.(json|svg)$/,

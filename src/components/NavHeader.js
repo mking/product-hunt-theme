@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import ConstraintComponent from './ConstraintComponent';
 import LinearGroup from './LinearGroup';
 import React from 'react';
+import SearchContainer from '../containers/SearchInputContainer';
 import styles from './NavHeader.scss';
 
 class NavHeader extends React.Component {
@@ -35,6 +36,7 @@ class NavHeader extends React.Component {
                 src={require('../images/logo.svg')}
               />
             </a>
+            <SearchContainer />
           </LinearGroup>
           <LinearGroup
             orientation="horizontal"

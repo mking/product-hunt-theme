@@ -1,0 +1,10 @@
+@import '../common';
+
+:local(.container) {
+  background-color: $color-lightGray;
+}
+
+:local(.mainContent) {
+  display: flex;
+  padding: 30px 15px;
+}
