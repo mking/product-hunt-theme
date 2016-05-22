@@ -14,7 +14,7 @@ module.exports = {
     loaders: [
       common.jsLoader,
       common.cssLoader,
-      common.svgLoader,
+      common.fileLoader,
     ]
   },
   plugins: [
