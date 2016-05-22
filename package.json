@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server"
+    "build:github": "NODE_ENV=github webpack --config ./webpack.config.github.js",
+    "clean": "rm -rf build",
+    "deploy:github": "./scripts/deploy-github.sh",
+    "start": "webpack-dev-server --config ./webpack.config.dev.js"
   },
   "dependencies": {
     "axios": "^0.11.1",
